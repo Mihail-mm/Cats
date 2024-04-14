@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Show</title>
+</head>
+<body>
+<p th:text="${cat.getName() + ', ' + cat.getBirthdate()}">VALUE</p>
+
+<form th:method="DELETE" th:action="@{/cats/{id}(id=${cat.getId()})}">
+    <input type="submit" value="Удалить"/>
+</form>
+
+</body>
+</html>

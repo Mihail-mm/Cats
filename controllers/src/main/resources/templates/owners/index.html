@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+
+<div th:each="owner : ${owners}">
+    <a th:href="@{/owners/{id}(id=${owner.getId()})}"
+       th:text="${owner.getName() + ', ' + owner.getBirthdate()}">owner</a>
+</div>
+
+<br/>
+<hr/>
+
+<a href="/owners/new">Добавить человека</a>
+
+</body>
+</html>
