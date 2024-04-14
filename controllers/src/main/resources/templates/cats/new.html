@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>New cat</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/cats}" th:object="${cat}">
+    <label for="name">Введите Имя: </label>
+    <input type="text" th:field="*{name}" id="name"/>
+    <br/>
+    <label for="birthdate">Введите год рождения: </label>
+    <input type="date" th:field="*{birthdate}" id="birthdate"/>
+    <br/>
+    <label for="breed">Введите породу: </label>
+    <input type="text" th:field="*{breed}" id="breed"/>
+    <br/>
+    <label for="color">Введите цвет: </label>
+    <input type="text" th:field="*{color}" id="color"/>
+    <br/>
+    <label for="owner">Укажите хоязина кота: </label>
+    <input type="text" th:field="*{color}" id="owner"/>
+    <br/>
+    <input type="submit" value="Create!"/>
+</form>
+
+</body>
+</html>

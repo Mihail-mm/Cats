@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Show</title>
+</head>
+<body>
+<p th:text="${owner.getName() + ', ' + owner.getBirthdate()}">VALUE</p>
+
+<div th:if="${cats.isEmpty()}">
+    <p>У человека нет котов</p>
+    <hr/>
+</div>
+
+<div th:if="${!cats.isEmpty()}">
+    <hr/>
+    <b>Коты:</b>
+    <br/>
+    <table th:each="cat : ${cats}">
+        <tr>
+            <td>
+                <span th:text="${cat.getName() + ', ' + cat.getBreed() + ', ' + cat.getColor()}">
+                </span>
+            </td>
+        </tr>
+    </table>
+    <hr/>
+</div>
+
+<form th:method="DELETE" th:action="@{/owners/{id}(id=${owner.getId()})}">
+    <input type="submit" value="Удалить"/>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/cats/search}">
+    <label for="query">Введите цвет: </label>
+    <input type="text" id="query" name="query"/>
+    <br/>
+    <input type="submit" value="Искать!"/>
+</form>
+
+<div th:if="${cats}">
+    <div th:if="${cats.isEmpty()}">
+        <span>Котов не найдено</span>
+    </div>
+
+    <div th:each="cat : ${cats}">
+        <p th:text="${cat.getName() + ', ' + cat.getBreed() + ', ' + cat.getColor()}">cat</p>
+
+        <div th:if="${cat.getOwner() != null}">
+            <span>Хозяин кошки: </span> <span th:text="${cat.getOwner().getName()}">Owner name</span>
+        </div>
+
+        <div th:if="${cat.getOwner() == null}">
+            <span>Кот без хозина</span>
+        </div>
+
+        <hr/>
+    </div>
+</div>
+
+</body>
+</html>

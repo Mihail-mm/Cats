@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+
+<div th:each="cat : ${cats}">
+    <a th:href="@{/cats/{id}(id=${cat.getId()})}"
+       th:text="${'Имя: ' + cat.getName() + '; День рождения: ' + cat.getBirthdate() + '; Порода: ' + cat.getBreed() + '; Цвет: ' + cat.getColor() + ', '}">cat</a>
+</div>
+
+<br/>
+<hr/>
+
+<a href="/cats/new">Добавить котика</a>
+
+<a href="/cats/search">Найти котов по цвету</a>
+
+</body>
+</html>
